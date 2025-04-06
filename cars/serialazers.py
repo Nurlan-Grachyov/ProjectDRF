@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from cars.models import Cars, Moto, Milage
+from cars.services import current
 from cars.validators import TitleValidator
 
 
@@ -13,10 +14,14 @@ class MilageSerializer(serializers.ModelSerializer):
 class CarSerializer(serializers.ModelSerializer):
     last_milage = serializers.IntegerField(source='milage.all.first.milage', read_only=True)
     milage = MilageSerializer(many=True, read_only=True)
+    rub_price = serializers.SerializerMethodField()
 
     class Meta:
         model = Cars
         fields = '__all__'
+
+    def get_rub_price(self, obj):
+        return current(obj.price)
 
 
 class MotoSerializer(serializers.ModelSerializer):

@@ -1,8 +1,8 @@
 from django.urls import path
+
 from rest_framework.routers import DefaultRouter
 
 from cars.apps import CarsConfig
-from cars.serialazers import MotoMilageSerializer
 from cars.views import CarViewSet, MotoListAPIView, MotoCreateAPIView, MotoUpdateAPIView, MotoRetrieveAPIView, \
     MotoDestroyAPIView, MilageCreateApiView, MotoMilageListApiView, MilageListApiView
 
