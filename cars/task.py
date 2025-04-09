@@ -21,8 +21,8 @@ def check_milage(pk, model):
                     print("Неверный пробег")
                     break
 
+
 def check_filter():
     filter_price = {"price__lte": 500}
     if Cars.objects.filter(**filter_price).exists():
         print("Получены отфильтрованные машины")
-
