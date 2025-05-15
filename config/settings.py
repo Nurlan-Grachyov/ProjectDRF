@@ -88,10 +88,14 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "USER": "postgres",
-        "NAME": os.getenv('ProjectDRF'),
+        "NAME": os.getenv('POSTGRES_DB'),
         "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': '5432',
+        "TEST": {
+            "NAME": "test_" + os.getenv('POSTGRES_DB'),
+        }
+
     }
 }
 
