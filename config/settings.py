@@ -9,9 +9,12 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+import os
 from datetime import timedelta
 from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -85,13 +88,10 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "USER": "postgres",
-        "NAME": 'ProjectDRF',
-        "PASSWORD": '07052001',
-        'HOST': 'localhost',
+        "NAME": os.getenv('ProjectDRF'),
+        "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
+        'HOST': 'db',
         'PORT': '5432',
-        "TEST": {
-            "NAME": "test_ProjectDRF",
-        },
     }
 }
 
@@ -158,10 +158,10 @@ API_URL = "https://api.currencyapi.com/"
 
 API_KEY = "cur_live_NFOzRaqUwAxdL2dcZKjJicsZDpetefaQa0oQUZka"
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_BROKER_URL = 'redis://redis:6379/0'
 
 # URL-адрес брокера результатов, также Redis
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
 
 # Часовой пояс для работы Celery
 CELERY_TIMEZONE = "Australia/Tasmania"
