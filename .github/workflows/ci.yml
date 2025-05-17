@@ -33,7 +33,7 @@ jobs:
 
     - name: Run tests
       run: |
-        poetry run pytest
+        poetry run python manage.py test
 
   deploy:
     runs-on: ubuntu-latest
