@@ -13,7 +13,7 @@ class CarsTest(APITestCase):
         self.owner.save()
         self.factory = APIRequestFactory()
 
-        Cars.objects.create(title="test_car", description="car_data", price=100)
+        Cars.objects.create(title="test_car", description="car_dat", price=100)
         self.car_data = {'title': 'test_car', 'description': 'test_car'}
 
     def test_create_car(self):
