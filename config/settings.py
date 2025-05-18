@@ -90,7 +90,7 @@ DATABASES = {
         "USER": "postgres",
         "NAME": "ProjectDRF",
         "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
